@@ -1,0 +1,26 @@
+<%- include('header'); -%>
+    <div class="box" id="heading">
+      <h1 style="color:blue;"> To-Do Lists </h1>
+    </div>
+
+ <div class="box">
+  <form class="item receipt"action="/" method="post">
+    <input class="entry" type="text" name="ListName" placeholder="New List" autocomplete="off">
+    
+    <button class="entry" type="submit" name="button"> + </button>
+  </form>
+  
+  <% for(let index=0; index < bounds ; index++) { %>
+    <form action="/delete" method="post">
+    <div class="item">
+    <input type="checkbox" name="checkBox" value="<%=newListItem[index]._id%>" onchange="this.form.submit()">
+    
+    <a href="/Lists/<%= newListItem[index].name %>" style="font-size: 30px; text-decoration: none; color: green;"><%= newListItem[index].name %></a>
+    
+     </div>
+    </form>
+<%  } %>
+
+ 
+</div>
+<%- include('footer'); -%>
